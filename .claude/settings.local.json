@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(C:/Users/nenlian/AppData/Local/Programs/Python/Python313/python.exe -m pip install ollama pydantic pyyaml)"
+    ]
+  }
+}

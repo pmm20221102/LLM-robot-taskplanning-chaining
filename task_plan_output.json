@@ -1,0 +1,73 @@
+{
+  "status": "valid",
+  "task_chain": [
+    {
+      "step": 1,
+      "action": "locate_entity",
+      "target_type": "person",
+      "target_id": "patient_02",
+      "description": "Locate the patient in room_204",
+      "executor": "scene_graph",
+      "constraints": {
+        "avoid": [],
+        "prefer": [],
+        "conditions": []
+      }
+    },
+    {
+      "step": 2,
+      "action": "navigate_to",
+      "target_type": "room",
+      "target_id": "room_204",
+      "description": "Navigate to room_204 to reach the patient",
+      "executor": "nav2",
+      "constraints": {
+        "avoid": [],
+        "prefer": [],
+        "conditions": [
+          "patient_located"
+        ]
+      }
+    },
+    {
+      "step": 3,
+      "action": "escort_to",
+      "target_type": "room",
+      "target_id": "room_105",
+      "description": "Escort the patient from room_204 to room_105",
+      "executor": "nav2",
+      "constraints": {
+        "avoid": [
+          "corridor_1f_operating"
+        ],
+        "prefer": [
+          "shortest_safe_route"
+        ],
+        "conditions": [
+          "robot_arrived_at_room_204",
+          "patient_ready_for_transfer"
+        ]
+      }
+    },
+    {
+      "step": 4,
+      "action": "trigger_workflow",
+      "target_type": "workflow",
+      "target_id": "first_screening",
+      "description": "Trigger the first screening workflow after arrival at room_105",
+      "executor": "external_workflow",
+      "constraints": {
+        "avoid": [],
+        "prefer": [],
+        "conditions": [
+          "patient_arrived_at_room_105"
+        ]
+      }
+    }
+  ],
+  "clarification_request": null,
+  "target_not_found": null,
+  "notes": [
+    "corridor_1f_operating should be avoided if possible or minimized if access to room_105 requires it."
+  ]
+}

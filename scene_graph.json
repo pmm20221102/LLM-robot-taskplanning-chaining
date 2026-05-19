@@ -1,0 +1,1144 @@
+{
+  "scene_id": "hospital_demo_scene_graph_001",
+  "scene_type": "hospital_like_indoor_environment",
+  "description": "A three-floor hospital environment with outpatient, operating, ward, and storage areas.",
+  "entities": [
+    {
+      "id": "floor_1",
+      "type": "floor",
+      "name": "First Floor",
+      "function": "outpatient_and_operating_area",
+      "description": "The first floor contains the entrance, nurse triage desk, waiting room, pharmacy, and three operating rooms."
+    },
+    {
+      "id": "floor_2",
+      "type": "floor",
+      "name": "Second Floor",
+      "function": "ward_area",
+      "description": "The second floor contains ten patient rooms arranged along both sides of the corridor."
+    },
+    {
+      "id": "floor_3",
+      "type": "floor",
+      "name": "Third Floor",
+      "function": "storage_area",
+      "description": "The third floor contains four storage rooms."
+    },
+
+    {
+      "id": "main_entrance",
+      "type": "entrance",
+      "floor": "floor_1",
+      "description": "Main entrance of the hospital, facing the nurse triage desk."
+    },
+    {
+      "id": "corridor_1f_main",
+      "type": "corridor",
+      "floor": "floor_1",
+      "state": "free",
+      "description": "Main corridor on the first floor connecting outpatient and operating areas."
+    },
+    {
+      "id": "corridor_1f_operating",
+      "type": "corridor",
+      "floor": "floor_1",
+      "state": "restricted",
+      "description": "Operating area corridor leading to rooms 104, 105, and 106."
+    },
+    {
+      "id": "staircase_main",
+      "type": "vertical_connection",
+      "connection_type": "stairs",
+      "description": "Main staircase connecting all three floors."
+    },
+    {
+      "id": "elevator_main",
+      "type": "vertical_connection",
+      "connection_type": "elevator",
+      "state": "available",
+      "description": "Main elevator connecting all three floors."
+    },
+
+    {
+      "id": "room_101",
+      "type": "staff_station",
+      "name": "Nurse Triage Desk",
+      "floor": "floor_1",
+      "location": "center_facing_main_entrance",
+      "description": "Nurse triage desk located centrally opposite the main entrance."
+    },
+    {
+      "id": "triage_desk_101",
+      "type": "furniture",
+      "subtype": "semi_circular_counter",
+      "location": "room_101",
+      "description": "Semi-circular nurse triage counter."
+    },
+    {
+      "id": "monitor_101_a",
+      "type": "device",
+      "subtype": "lcd_monitor",
+      "location": "triage_desk_101",
+      "description": "First LCD monitor placed on the triage desk."
+    },
+    {
+      "id": "monitor_101_b",
+      "type": "device",
+      "subtype": "lcd_monitor",
+      "location": "triage_desk_101",
+      "description": "Second LCD monitor placed on the triage desk."
+    },
+    {
+      "id": "digital_schedule_board_101",
+      "type": "device",
+      "subtype": "digital_schedule_board",
+      "location": "room_101",
+      "description": "Digital scheduling board mounted on the wall behind the triage desk."
+    },
+    {
+      "id": "medical_record_folder_101",
+      "type": "object",
+      "subtype": "medical_record_folder",
+      "location": "under_left_side_of_triage_desk_101",
+      "description": "Medical record folder placed under the left side of the counter."
+    },
+
+    {
+      "id": "room_102",
+      "type": "waiting_room",
+      "name": "Waiting Room",
+      "floor": "floor_1",
+      "location": "right_of_room_101",
+      "description": "Waiting room located to the right of the nurse triage desk."
+    },
+    {
+      "id": "chair_row_102_a",
+      "type": "furniture",
+      "subtype": "row_chairs",
+      "location": "room_102",
+      "description": "First row of connected waiting chairs in the center of the room."
+    },
+    {
+      "id": "chair_row_102_b",
+      "type": "furniture",
+      "subtype": "row_chairs",
+      "location": "room_102",
+      "description": "Second row of connected waiting chairs in the center of the room."
+    },
+    {
+      "id": "chair_row_102_c",
+      "type": "furniture",
+      "subtype": "row_chairs",
+      "location": "room_102",
+      "description": "Third row of connected waiting chairs in the center of the room."
+    },
+    {
+      "id": "water_dispenser_102",
+      "type": "device",
+      "subtype": "automatic_water_dispenser",
+      "location": "room_102",
+      "description": "Automatic water dispenser standing in front of the chair rows."
+    },
+    {
+      "id": "plant_102",
+      "type": "object",
+      "subtype": "potted_plant",
+      "location": "corner_of_room_102",
+      "description": "Potted plant placed in the corner of the waiting room."
+    },
+
+    {
+      "id": "room_103",
+      "type": "pharmacy",
+      "name": "Pharmacy",
+      "floor": "floor_1",
+      "location": "left_of_room_101",
+      "description": "Pharmacy located to the left of the nurse triage desk."
+    },
+    {
+      "id": "medicine_shelf_103_a",
+      "type": "furniture",
+      "subtype": "medicine_shelf",
+      "location": "room_103",
+      "description": "First medicine shelf inside the pharmacy."
+    },
+    {
+      "id": "medicine_shelf_103_b",
+      "type": "furniture",
+      "subtype": "medicine_shelf",
+      "location": "room_103",
+      "description": "Second medicine shelf inside the pharmacy."
+    },
+    {
+      "id": "pharmacy_window_103",
+      "type": "service_window",
+      "location": "room_103",
+      "description": "Service window of the pharmacy."
+    },
+    {
+      "id": "barcode_scanner_103",
+      "type": "device",
+      "subtype": "barcode_scanner",
+      "location": "pharmacy_window_103",
+      "description": "Barcode scanner placed at the pharmacy window."
+    },
+    {
+      "id": "logistics_cart_103",
+      "type": "mobile_object",
+      "subtype": "logistics_cart",
+      "location": "between_medicine_shelf_and_pharmacy_window",
+      "description": "Logistics cart parked between the shelves and the service window."
+    },
+
+    {
+      "id": "room_104",
+      "type": "operating_room",
+      "name": "Operating Room 104",
+      "floor": "floor_1",
+      "location": "deep_inside_operating_corridor",
+      "description": "Operating room located deep in the operating corridor."
+    },
+    {
+      "id": "operating_bed_104",
+      "type": "furniture",
+      "subtype": "operating_bed",
+      "location": "center_of_room_104",
+      "description": "Operating bed placed in the center of room 104."
+    },
+    {
+      "id": "shadowless_lamp_104",
+      "type": "device",
+      "subtype": "multi_head_shadowless_lamp",
+      "location": "above_operating_bed_104",
+      "description": "Multi-head shadowless lamp hanging above the operating bed."
+    },
+
+    {
+      "id": "room_105",
+      "type": "operating_room",
+      "name": "Operating Room 105",
+      "floor": "floor_1",
+      "location": "next_to_room_104",
+      "description": "Operating room located next to room 104."
+    },
+    {
+      "id": "vital_sign_monitor_105",
+      "type": "device",
+      "subtype": "vital_sign_monitor",
+      "location": "corner_of_room_105",
+      "description": "Vital sign monitor standing in the corner of room 105."
+    },
+    {
+      "id": "instrument_cart_105",
+      "type": "mobile_object",
+      "subtype": "instrument_cart",
+      "location": "right_of_vital_sign_monitor_105",
+      "description": "Instrument cart placed immediately to the right of the vital sign monitor."
+    },
+
+    {
+      "id": "room_106",
+      "type": "operating_room",
+      "name": "Operating Room 106",
+      "floor": "floor_1",
+      "location": "end_of_operating_corridor",
+      "description": "Operating room located at the end of the operating corridor."
+    },
+    {
+      "id": "sink_106",
+      "type": "fixture",
+      "subtype": "surgical_sink",
+      "location": "left_wall_beside_door_of_room_106",
+      "description": "Surgical sink installed on the wall to the left of the door."
+    },
+    {
+      "id": "surgical_gowns_106",
+      "type": "object",
+      "subtype": "surgical_gown_set",
+      "location": "above_sink_106",
+      "description": "Set of surgical gowns hanging above the sink."
+    },
+
+    {
+      "id": "corridor_2f_main",
+      "type": "corridor",
+      "floor": "floor_2",
+      "state": "free",
+      "description": "Main corridor on the second floor with patient rooms 201 to 210 on both sides."
+    },
+
+    {
+      "id": "room_201",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "left_side_of_corridor_2f_main",
+      "description": "Patient room 201."
+    },
+    {
+      "id": "room_202",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "right_side_of_corridor_2f_main",
+      "description": "Patient room 202."
+    },
+    {
+      "id": "room_203",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "left_side_of_corridor_2f_main",
+      "description": "Patient room 203."
+    },
+    {
+      "id": "room_204",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "right_side_of_corridor_2f_main",
+      "description": "Patient room 204."
+    },
+    {
+      "id": "room_205",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "left_side_of_corridor_2f_main",
+      "description": "Patient room 205."
+    },
+    {
+      "id": "room_206",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "right_side_of_corridor_2f_main",
+      "description": "Patient room 206."
+    },
+    {
+      "id": "room_207",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "left_side_of_corridor_2f_main",
+      "description": "Patient room 207."
+    },
+    {
+      "id": "room_208",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "right_side_of_corridor_2f_main",
+      "description": "Patient room 208."
+    },
+    {
+      "id": "room_209",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "left_side_of_corridor_2f_main",
+      "description": "Patient room 209."
+    },
+    {
+      "id": "room_210",
+      "type": "patient_room",
+      "floor": "floor_2",
+      "location": "right_side_of_corridor_2f_main",
+      "description": "Patient room 210."
+    },
+
+    {
+      "id": "patient_01",
+      "type": "person",
+      "subtype": "patient",
+      "location": "room_201",
+      "state": "waiting_for_transfer",
+      "description": "Patient located in room 201 and waiting to be transferred."
+    },
+    {
+      "id": "patient_02",
+      "type": "person",
+      "subtype": "patient",
+      "location": "room_204",
+      "state": "resting",
+      "description": "Patient resting in room 204."
+    },
+    {
+      "id": "nurse_01",
+      "type": "person",
+      "subtype": "nurse",
+      "location": "room_101",
+      "state": "available",
+      "description": "Nurse located at the triage desk."
+    },
+
+    {
+      "id": "bed_201",
+      "type": "furniture",
+      "subtype": "nursing_bed_with_guardrail",
+      "location": "near_window_of_room_201",
+      "description": "Nursing bed with guardrails placed near the window."
+    },
+    {
+      "id": "bedside_cabinet_201",
+      "type": "furniture",
+      "subtype": "bedside_cabinet",
+      "location": "right_of_bed_201",
+      "description": "Bedside cabinet placed on the right side of the bed."
+    },
+    {
+      "id": "thermos_201",
+      "type": "object",
+      "subtype": "thermos_bottle",
+      "location": "on_bedside_cabinet_201",
+      "description": "Thermos bottle placed on the bedside cabinet."
+    },
+    {
+      "id": "infusion_stand_201",
+      "type": "medical_device",
+      "subtype": "infusion_stand",
+      "location": "left_of_bed_201",
+      "description": "Infusion stand standing on the left side of the bed."
+    },
+    {
+      "id": "tv_201",
+      "type": "device",
+      "subtype": "television",
+      "location": "wall_opposite_bed_201",
+      "description": "Television mounted on the wall opposite the bed."
+    },
+    {
+      "id": "folding_chair_201",
+      "type": "furniture",
+      "subtype": "folding_chair",
+      "location": "below_tv_201",
+      "description": "Folding chair placed below the television."
+    },
+    {
+      "id": "bathroom_201",
+      "type": "bathroom",
+      "location": "behind_glass_door_left_of_entrance_room_201",
+      "description": "Independent bathroom behind a glass door on the left side of the room entrance."
+    },
+
+    {
+      "id": "bed_202",
+      "type": "furniture",
+      "subtype": "nursing_bed_with_guardrail",
+      "location": "near_window_of_room_202",
+      "description": "Nursing bed with guardrails placed near the window."
+    },
+    {
+      "id": "bedside_cabinet_202",
+      "type": "furniture",
+      "subtype": "bedside_cabinet",
+      "location": "right_of_bed_202",
+      "description": "Bedside cabinet placed on the right side of the bed."
+    },
+    {
+      "id": "thermos_202",
+      "type": "object",
+      "subtype": "thermos_bottle",
+      "location": "on_bedside_cabinet_202",
+      "description": "Thermos bottle placed on the bedside cabinet."
+    },
+    {
+      "id": "infusion_stand_202",
+      "type": "medical_device",
+      "subtype": "infusion_stand",
+      "location": "left_of_bed_202",
+      "description": "Infusion stand standing on the left side of the bed."
+    },
+    {
+      "id": "tv_202",
+      "type": "device",
+      "subtype": "television",
+      "location": "wall_opposite_bed_202",
+      "description": "Television mounted on the wall opposite the bed."
+    },
+    {
+      "id": "folding_chair_202",
+      "type": "furniture",
+      "subtype": "folding_chair",
+      "location": "below_tv_202",
+      "description": "Folding chair placed below the television."
+    },
+    {
+      "id": "bathroom_202",
+      "type": "bathroom",
+      "location": "behind_glass_door_left_of_entrance_room_202",
+      "description": "Independent bathroom behind a glass door on the left side of the room entrance."
+    },
+
+    {
+      "id": "bed_203",
+      "type": "furniture",
+      "subtype": "nursing_bed_with_guardrail",
+      "location": "near_window_of_room_203",
+      "description": "Nursing bed with guardrails placed near the window."
+    },
+    {
+      "id": "bedside_cabinet_203",
+      "type": "furniture",
+      "subtype": "bedside_cabinet",
+      "location": "right_of_bed_203",
+      "description": "Bedside cabinet placed on the right side of the bed."
+    },
+    {
+      "id": "thermos_203",
+      "type": "object",
+      "subtype": "thermos_bottle",
+      "location": "on_bedside_cabinet_203",
+      "description": "Thermos bottle placed on the bedside cabinet."
+    },
+    {
+      "id": "infusion_stand_203",
+      "type": "medical_device",
+      "subtype": "infusion_stand",
+      "location": "left_of_bed_203",
+      "description": "Infusion stand standing on the left side of the bed."
+    },
+    {
+      "id": "tv_203",
+      "type": "device",
+      "subtype": "television",
+      "location": "wall_opposite_bed_203",
+      "description": "Television mounted on the wall opposite the bed."
+    },
+    {
+      "id": "folding_chair_203",
+      "type": "furniture",
+      "subtype": "folding_chair",
+      "location": "below_tv_203",
+      "description": "Folding chair placed below the television."
+    },
+    {
+      "id": "bathroom_203",
+      "type": "bathroom",
+      "location": "behind_glass_door_left_of_entrance_room_203",
+      "description": "Independent bathroom behind a glass door on the left side of the room entrance."
+    },
+
+    {
+      "id": "room_301",
+      "type": "storage_room",
+      "floor": "floor_3",
+      "description": "Storage room with metal shelves, protective clothing boxes, and syringe packages."
+    },
+    {
+      "id": "metal_shelf_301",
+      "type": "furniture",
+      "subtype": "metal_shelf",
+      "location": "room_301",
+      "description": "Metal shelf arranged inside storage room 301."
+    },
+    {
+      "id": "protective_clothing_boxes_301",
+      "type": "object",
+      "subtype": "protective_clothing_boxes",
+      "location": "bottom_layer_of_metal_shelf_301",
+      "description": "Protective clothing boxes stacked on the bottom layer of the metal shelf."
+    },
+    {
+      "id": "syringe_packages_301",
+      "type": "object",
+      "subtype": "syringe_package_boxes",
+      "location": "middle_layer_of_metal_shelf_301",
+      "description": "Syringe package boxes stacked on the middle layer of the metal shelf."
+    },
+
+    {
+      "id": "room_302",
+      "type": "storage_room",
+      "floor": "floor_3",
+      "description": "Storage room with three canvas carts containing folded bed sheets."
+    },
+    {
+      "id": "canvas_cart_302_a",
+      "type": "mobile_object",
+      "subtype": "canvas_cart",
+      "location": "center_of_room_302",
+      "description": "First canvas cart parked in the center of room 302."
+    },
+    {
+      "id": "canvas_cart_302_b",
+      "type": "mobile_object",
+      "subtype": "canvas_cart",
+      "location": "center_of_room_302",
+      "description": "Second canvas cart parked in the center of room 302."
+    },
+    {
+      "id": "canvas_cart_302_c",
+      "type": "mobile_object",
+      "subtype": "canvas_cart",
+      "location": "center_of_room_302",
+      "description": "Third canvas cart parked in the center of room 302."
+    },
+    {
+      "id": "folded_bed_sheets_302",
+      "type": "object",
+      "subtype": "folded_bed_sheets",
+      "location": "inside_canvas_carts_302",
+      "description": "Folded bed sheets stacked inside the canvas carts."
+    },
+
+    {
+      "id": "room_303",
+      "type": "storage_room",
+      "floor": "floor_3",
+      "description": "Storage room with stacked chairs and copy paper boxes."
+    },
+    {
+      "id": "stacked_chairs_303",
+      "type": "furniture",
+      "subtype": "stacked_backrest_chairs",
+      "location": "against_wall_of_room_303",
+      "description": "Backrest chairs stacked against the wall."
+    },
+    {
+      "id": "copy_paper_boxes_303",
+      "type": "object",
+      "subtype": "copy_paper_boxes",
+      "location": "in_front_of_stacked_chairs_303",
+      "description": "Copy paper boxes placed in front of the stacked chairs."
+    },
+
+    {
+      "id": "room_304",
+      "type": "storage_room",
+      "floor": "floor_3",
+      "description": "Storage room with yellow plastic buckets and an exhaust fan above them."
+    },
+    {
+      "id": "yellow_plastic_buckets_304",
+      "type": "object",
+      "subtype": "yellow_plastic_buckets",
+      "location": "against_wall_of_room_304",
+      "description": "Several yellow plastic buckets standing against the wall."
+    },
+    {
+      "id": "exhaust_fan_304",
+      "type": "device",
+      "subtype": "ceiling_exhaust_fan",
+      "location": "ceiling_above_yellow_plastic_buckets_304",
+      "description": "Exhaust fan installed on the ceiling directly above the yellow plastic buckets."
+    }
+  ],
+  "relations": [
+    {
+      "from": "floor_1",
+      "to": "room_101",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_1",
+      "to": "room_102",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_1",
+      "to": "room_103",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_1",
+      "to": "room_104",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_1",
+      "to": "room_105",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_1",
+      "to": "room_106",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_201",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_202",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_203",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_204",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_205",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_206",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_207",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_208",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_209",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_2",
+      "to": "room_210",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_3",
+      "to": "room_301",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_3",
+      "to": "room_302",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_3",
+      "to": "room_303",
+      "relation": "contains"
+    },
+    {
+      "from": "floor_3",
+      "to": "room_304",
+      "relation": "contains"
+    },
+
+    {
+      "from": "main_entrance",
+      "to": "room_101",
+      "relation": "facing"
+    },
+    {
+      "from": "room_101",
+      "to": "room_102",
+      "relation": "left_of",
+      "inverse_relation_note": "From the entrance perspective, room_102 is to the right of the nurse desk."
+    },
+    {
+      "from": "room_101",
+      "to": "room_103",
+      "relation": "right_of",
+      "inverse_relation_note": "From the entrance perspective, room_103 is to the left of the nurse desk."
+    },
+    {
+      "from": "room_101",
+      "to": "corridor_1f_main",
+      "relation": "connected_to"
+    },
+    {
+      "from": "room_102",
+      "to": "corridor_1f_main",
+      "relation": "connected_to"
+    },
+    {
+      "from": "room_103",
+      "to": "corridor_1f_main",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_1f_main",
+      "to": "corridor_1f_operating",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_1f_operating",
+      "to": "room_104",
+      "relation": "connected_to"
+    },
+    {
+      "from": "room_104",
+      "to": "room_105",
+      "relation": "adjacent_to"
+    },
+    {
+      "from": "corridor_1f_operating",
+      "to": "room_105",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_1f_operating",
+      "to": "room_106",
+      "relation": "connected_to"
+    },
+
+    {
+      "from": "elevator_main",
+      "to": "floor_1",
+      "relation": "connects"
+    },
+    {
+      "from": "elevator_main",
+      "to": "floor_2",
+      "relation": "connects"
+    },
+    {
+      "from": "elevator_main",
+      "to": "floor_3",
+      "relation": "connects"
+    },
+    {
+      "from": "staircase_main",
+      "to": "floor_1",
+      "relation": "connects"
+    },
+    {
+      "from": "staircase_main",
+      "to": "floor_2",
+      "relation": "connects"
+    },
+    {
+      "from": "staircase_main",
+      "to": "floor_3",
+      "relation": "connects"
+    },
+
+    {
+      "from": "corridor_2f_main",
+      "to": "room_201",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_2f_main",
+      "to": "room_202",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_2f_main",
+      "to": "room_203",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_2f_main",
+      "to": "room_204",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_2f_main",
+      "to": "room_205",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_2f_main",
+      "to": "room_206",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_2f_main",
+      "to": "room_207",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_2f_main",
+      "to": "room_208",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_2f_main",
+      "to": "room_209",
+      "relation": "connected_to"
+    },
+    {
+      "from": "corridor_2f_main",
+      "to": "room_210",
+      "relation": "connected_to"
+    },
+
+    {
+      "from": "patient_01",
+      "to": "room_201",
+      "relation": "located_in"
+    },
+    {
+      "from": "patient_02",
+      "to": "room_204",
+      "relation": "located_in"
+    },
+    {
+      "from": "nurse_01",
+      "to": "room_101",
+      "relation": "located_in"
+    },
+
+    {
+      "from": "room_101",
+      "to": "triage_desk_101",
+      "relation": "contains"
+    },
+    {
+      "from": "triage_desk_101",
+      "to": "monitor_101_a",
+      "relation": "supports"
+    },
+    {
+      "from": "triage_desk_101",
+      "to": "monitor_101_b",
+      "relation": "supports"
+    },
+    {
+      "from": "digital_schedule_board_101",
+      "to": "triage_desk_101",
+      "relation": "behind"
+    },
+    {
+      "from": "medical_record_folder_101",
+      "to": "triage_desk_101",
+      "relation": "under_left_side_of"
+    },
+
+    {
+      "from": "room_102",
+      "to": "chair_row_102_a",
+      "relation": "contains"
+    },
+    {
+      "from": "room_102",
+      "to": "chair_row_102_b",
+      "relation": "contains"
+    },
+    {
+      "from": "room_102",
+      "to": "chair_row_102_c",
+      "relation": "contains"
+    },
+    {
+      "from": "water_dispenser_102",
+      "to": "chair_row_102_a",
+      "relation": "in_front_of"
+    },
+    {
+      "from": "plant_102",
+      "to": "room_102",
+      "relation": "in_corner_of"
+    },
+
+    {
+      "from": "room_103",
+      "to": "medicine_shelf_103_a",
+      "relation": "contains"
+    },
+    {
+      "from": "room_103",
+      "to": "medicine_shelf_103_b",
+      "relation": "contains"
+    },
+    {
+      "from": "room_103",
+      "to": "pharmacy_window_103",
+      "relation": "contains"
+    },
+    {
+      "from": "barcode_scanner_103",
+      "to": "pharmacy_window_103",
+      "relation": "on"
+    },
+    {
+      "from": "logistics_cart_103",
+      "to": "medicine_shelf_103_a",
+      "relation": "between"
+    },
+    {
+      "from": "logistics_cart_103",
+      "to": "pharmacy_window_103",
+      "relation": "between"
+    },
+
+    {
+      "from": "room_104",
+      "to": "operating_bed_104",
+      "relation": "contains"
+    },
+    {
+      "from": "shadowless_lamp_104",
+      "to": "operating_bed_104",
+      "relation": "above"
+    },
+    {
+      "from": "vital_sign_monitor_105",
+      "to": "instrument_cart_105",
+      "relation": "left_of"
+    },
+    {
+      "from": "sink_106",
+      "to": "surgical_gowns_106",
+      "relation": "below"
+    },
+
+    {
+      "from": "room_201",
+      "to": "bed_201",
+      "relation": "contains"
+    },
+    {
+      "from": "bedside_cabinet_201",
+      "to": "bed_201",
+      "relation": "right_of"
+    },
+    {
+      "from": "thermos_201",
+      "to": "bedside_cabinet_201",
+      "relation": "on"
+    },
+    {
+      "from": "infusion_stand_201",
+      "to": "bed_201",
+      "relation": "left_of"
+    },
+    {
+      "from": "tv_201",
+      "to": "bed_201",
+      "relation": "in_front_of"
+    },
+    {
+      "from": "folding_chair_201",
+      "to": "tv_201",
+      "relation": "below"
+    },
+    {
+      "from": "bathroom_201",
+      "to": "room_201",
+      "relation": "attached_to"
+    },
+
+    {
+      "from": "room_202",
+      "to": "bed_202",
+      "relation": "contains"
+    },
+    {
+      "from": "bedside_cabinet_202",
+      "to": "bed_202",
+      "relation": "right_of"
+    },
+    {
+      "from": "thermos_202",
+      "to": "bedside_cabinet_202",
+      "relation": "on"
+    },
+    {
+      "from": "infusion_stand_202",
+      "to": "bed_202",
+      "relation": "left_of"
+    },
+    {
+      "from": "tv_202",
+      "to": "bed_202",
+      "relation": "in_front_of"
+    },
+    {
+      "from": "folding_chair_202",
+      "to": "tv_202",
+      "relation": "below"
+    },
+    {
+      "from": "bathroom_202",
+      "to": "room_202",
+      "relation": "attached_to"
+    },
+
+    {
+      "from": "room_203",
+      "to": "bed_203",
+      "relation": "contains"
+    },
+    {
+      "from": "bedside_cabinet_203",
+      "to": "bed_203",
+      "relation": "right_of"
+    },
+    {
+      "from": "thermos_203",
+      "to": "bedside_cabinet_203",
+      "relation": "on"
+    },
+    {
+      "from": "infusion_stand_203",
+      "to": "bed_203",
+      "relation": "left_of"
+    },
+    {
+      "from": "tv_203",
+      "to": "bed_203",
+      "relation": "in_front_of"
+    },
+    {
+      "from": "folding_chair_203",
+      "to": "tv_203",
+      "relation": "below"
+    },
+    {
+      "from": "bathroom_203",
+      "to": "room_203",
+      "relation": "attached_to"
+    },
+
+    {
+      "from": "room_301",
+      "to": "metal_shelf_301",
+      "relation": "contains"
+    },
+    {
+      "from": "protective_clothing_boxes_301",
+      "to": "metal_shelf_301",
+      "relation": "on_bottom_layer_of"
+    },
+    {
+      "from": "syringe_packages_301",
+      "to": "metal_shelf_301",
+      "relation": "on_middle_layer_of"
+    },
+    {
+      "from": "room_302",
+      "to": "canvas_cart_302_a",
+      "relation": "contains"
+    },
+    {
+      "from": "room_302",
+      "to": "canvas_cart_302_b",
+      "relation": "contains"
+    },
+    {
+      "from": "room_302",
+      "to": "canvas_cart_302_c",
+      "relation": "contains"
+    },
+    {
+      "from": "folded_bed_sheets_302",
+      "to": "canvas_cart_302_a",
+      "relation": "inside"
+    },
+    {
+      "from": "folded_bed_sheets_302",
+      "to": "canvas_cart_302_b",
+      "relation": "inside"
+    },
+    {
+      "from": "folded_bed_sheets_302",
+      "to": "canvas_cart_302_c",
+      "relation": "inside"
+    },
+    {
+      "from": "stacked_chairs_303",
+      "to": "copy_paper_boxes_303",
+      "relation": "behind"
+    },
+    {
+      "from": "exhaust_fan_304",
+      "to": "yellow_plastic_buckets_304",
+      "relation": "above"
+    }
+  ]
+}
